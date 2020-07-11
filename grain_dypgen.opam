@@ -8,7 +8,6 @@ depends: [
   "ocaml" {>= "4.07.0"}
   "ocamlfind" {build}
 ]
-patches: ["install-bsd-compatible.patch"]
 install: [
   [make "install" "DYPGENLIBDIR=%{lib}%" "BINDIR=%{bin}%" "MANDIR=%{man}%/man1"]
   ["sh.exe" "-c" "if [ -f '%{bin}%/dypgen' ] && [ ! -f '%{bin}%/dypgen.exe' ] ; then mv '%{bin}%/dypgen' '%{bin}%/dypgen.exe' ; fi" ] { os = "win32" }
@@ -20,8 +19,3 @@ dypgen is a GLR parser generator for OCaml, it is able to
 generate self-extensible parsers (also called adaptive parsers) as
 well as extensible lexers for the parsers it produces.
 (fork of pre-4.06 dypgen: http://dypgen.free.fr/)"""
-extra-files: [
-  ["install-bsd-compatible.patch" "md5=f4885881bb9e16bae3f9e88ebb54c582"]
-  ["dypgen.install" "md5=3af2bc7343588caf1a6de8af49a3b1b5"]
-]
-
